@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sugam Technologies - Innovative Tech Solutions</title>
+    <meta name="description" content="Sugam Technologies - Innovative tech solutions including BPO services, app development, web development, and digital marketing services.">
+    <meta name="keywords" content="BPO services, app development, web development, digital marketing, data entry, technology solutions">
+    <meta name="author" content="Sugam Technologies">
+    <meta property="og:title" content="Sugam Technologies - Innovative Tech Solutions">
+    <meta property="og:description" content="Providing cutting-edge technology services with excellence and innovation.">
+    <meta property="og:image" content="https://i.ibb.co/n851G64s/Whats-App-Image-2025-07-10-at-15-58-19-removebg-preview.png"> <!-- Update with your actual image URL -->
+    <meta property="og:url" content="https://sugamtech.in">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" as="style">
+    <link rel="preload" href="https://i.ibb.co/n851G64s/Whats-App-Image-2025-07-10-at-15-58-19-removebg-preview.png" as="image"> <!-- Update with your actual image URL -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        * { box-sizing: border-box; }
+        body {
+          margin: 0;
+          font-family: 'Poppins', sans-serif;
+          background-color: #0d0d1a;
+          color: white;
+          scroll-behavior: smooth;
+        }
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 2rem;
+          background-color: #14142b;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+          position: sticky;
+          top: 0;
+          z-index: 100;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo img { height: 50px; object-fit: contain; }
+        .logo span {
+          font-size: 1.5rem;
+          font-weight: 600;
+          background: linear-gradient(90deg, #ff00cc, #3333ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        nav { display: flex; align-items: center; }
+        nav a {
+          color: white;
+          text-decoration: none;
+          margin-left: 20px;
+          font-weight: 500;
+          transition: color 0.3s;
+        }
+        nav a:hover { color: #ff66cc; }
+        nav a.active {
+          color: #ff66cc !important;
+          font-weight: 600;
+        }
+        .menu-toggle {
+          display: none;
+          flex-direction: column;
+          cursor: pointer;
+        }
+        .menu-toggle div {
+          width: 25px;
+          height: 3px;
+          background-color: white;
+          margin: 4px 0;
+          transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .menu-toggle.active div:nth-child(1) {
+          transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .menu-toggle.active div:nth-child(2) {
+          opacity: 0;
+        }
+        .menu-toggle.active div:nth-child(3) {
+          transform: rotate(45deg) translate(-5px, -6px);
+        }
+        .nav-links { display: flex; }
+        section { padding: 4rem 2rem; text-align: center; }
+        .hero {
+          background: linear-gradient(145deg, #1f1f3a, #0d0d1a);
+          position: relative;
+          overflow: hidden;
+        }
+        .hero::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80') center/cover;
+          opacity: 0.15;
+          z-index: -1;
+        }
+        .hero-content {
+          position: relative;
+          z-index: 1;
+        }
+        .hero h1 {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          background: linear-gradient(90deg, #ff00cc, #3333ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+          font-size: 1.25rem;
+          max-width: 700px;
+          margin: 0 auto;
+          color: #ccc;
+        }
+        .section-title {
+          font-size: 2.2rem;
+          margin-bottom: 1rem;
+          background: linear-gradient(90deg, #ff00cc, #3333ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .about, .services, .contact, .founders, .careers {
+          background-color: #1a1a2e;
+          border-radius: 12px;
+          margin: 2rem auto;
+          padding: 2rem;
+          max-width: 900px;
+          box-shadow: 0 0 20px rgba(255, 0, 204, 0.1);
+        }
+        .services ul {
+          list-style: none;
+          padding: 0;
+          margin-top: 1rem;
+        }
+        .services li {
+          background-color: #2a2a40;
+          margin: 0.5rem auto;
+          padding: 1rem;
+          border-radius: 8px;
+          color: #ddd;
+          cursor: pointer;
+          transition: all 0.3s;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .services li:hover {
+          background-color: #3b3b5c;
+          transform: translateX(5px);
+        }
+        .services li::before {
+          content: "→";
+          color: #ff00cc;
+          font-weight: bold;
+        }
+        .service-description {
+          margin: 1rem 0 2rem;
+          background-color: #252542;
+          padding: 1.5rem;
+          border-radius: 8px;
+          color: #ccc;
+          text-align: left;
+          border-left: 4px solid #ff00cc;
+        }
+        .service-description img {
+          width: 100%;
+          border-radius: 8px;
+          margin-bottom: 1rem;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s;
+        }
+        .service-description img:hover {
+          transform: scale(1.02);
+        }
+        .contact p { margin: 0.5rem 0; }
+        .founders-container {
+          display: flex;
+          justify-content: center;
+          gap: 2rem;
+          flex-wrap: wrap;
+          margin-top: 2rem;
+        }
+        .founder-card {
+          background-color: #252542;
+          border-radius: 12px;
+          padding: 1.5rem;
+          width: 300px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s;
+        }
+        .founder-card:hover {
+          transform: translateY(-5px);
+        }
+        .founder-card h3 {
+          margin: 0.5rem 0;
+          color: white;
+        }
+        .founder-card p {
+          color: #bbb;
+          margin: 0.3rem 0;
+        }
+        footer {
+          text-align: center;
+          padding: 1.5rem;
+          background-color: #14142b;
+          color: #aaa;
+          margin-top: 3rem;
+        }
+        a.button {
+          display: inline-block;
+          margin-top: 2rem;
+          padding: 0.75rem 1.5rem;
+          background: linear-gradient(90deg, #ff00cc, #3333ff);
+          border: none;
+          border-radius: 8px;
+          color: white;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all 0.3s;
+          box-shadow: 0 4px 15px rgba(51, 51, 255, 0.3);
+        }
+        a.button:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 20px rgba(255, 0, 204, 0.4);
+        }
+        .about-content {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+          text-align: left;
+        }
+        .about-img {
+          flex: 1;
+          min-width: 300px;
+        }
+        .about-img img {
+          width: 100%;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .about-text {
+          flex: 2;
+        }
+        .contact-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+          margin-top: 2rem;
+        }
+        .contact-card {
+          background-color: #252542;
+          border-radius: 12px;
+          padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          transition: transform 0.3s;
+        }
+        .contact-card:hover {
+          transform: translateY(-5px);
+        }
+        .contact-card img {
+          width: 60px;
+          height: 60px;
+          margin-bottom: 1rem;
+        }
+        .contact-card h3 {
+          margin: 0.5rem 0;
+          color: white;
+        }
+        .contact-card p, .contact-card a {
+          color: #bbb;
+          margin: 0.3rem 0;
+          text-align: center;
+          text-decoration: none;
+          transition: color 0.3s;
+        }
+        .contact-card a:hover {
+          color: #ff66cc;
+        }
+        /* Contact Form Styles */
+        .contact-form-container {
+          max-width: 800px;
+          margin: 2rem auto;
+        }
+        .contact-form {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+        }
+        .form-group {
+          margin-bottom: 1rem;
+        }
+        .form-group label {
+          display: block;
+          margin-bottom: 0.5rem;
+          color: #ddd;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+          width: 100%;
+          padding: 0.75rem;
+          border-radius: 8px;
+          border: 1px solid #444;
+          background-color: #252542;
+          color: white;
+        }
+        .form-group textarea {
+          grid-column: span 2;
+        }
+        button[type="submit"] {
+          grid-column: span 2;
+          background: linear-gradient(90deg, #ff00cc, #3333ff);
+          color: white;
+          border: none;
+          padding: 0.75rem;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s;
+        }
+        button[type="submit"]:hover {
+          transform: scale(1.02);
+          box-shadow: 0 4px 15px rgba(51, 51, 255, 0.4);
+        }
+        .form-message {
+          grid-column: span 2;
+          padding: 1rem;
+          border-radius: 8px;
+          margin-top: 1rem;
+          text-align: center;
+          display: none;
+        }
+        .form-message.success {
+          background-color: rgba(0, 200, 0, 0.1);
+          border: 1px solid rgba(0, 200, 0, 0.3);
+          display: block;
+        }
+        .form-message.error {
+          background-color: rgba(200, 0, 0, 0.1);
+          border: 1px solid rgba(200, 0, 0, 0.3);
+          display: block;
+        }
+        /* Careers Section Styles */
+        .careers-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+          margin-top: 2rem;
+        }
+        .career-card {
+          background-color: #252542;
+          border-radius: 12px;
+          padding: 1.5rem;
+          transition: transform 0.3s;
+        }
+        .career-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 5px 15px rgba(255, 0, 204, 0.2);
+        }
+        .career-card h3 {
+          color: white;
+          margin-bottom: 0.5rem;
+        }
+        .career-card p {
+          color: #bbb;
+          margin: 0.5rem 0;
+        }
+        .career-card .requirements {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid #444;
+        }
+        .career-card .requirements h4 {
+          color: #ddd;
+          margin-bottom: 0.5rem;
+        }
+        .career-card .requirements ul {
+          padding-left: 1.5rem;
+          color: #bbb;
+        }
+        .career-card a {
+          display: inline-block;
+          margin-top: 1rem;
+          padding: 0.5rem 1rem;
+          background: linear-gradient(90deg, #ff00cc, #3333ff);
+          color: white;
+          text-decoration: none;
+          border-radius: 5px;
+          font-weight: 500;
+          transition: all 0.3s;
+        }
+        .career-card a:hover {
+          transform: scale(1.05);
+          box-shadow: 0 4px 10px rgba(255, 0, 204, 0.3);
+        }
+        /* Resume Upload Styles */
+        .resume-upload {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid #444;
+        }
+        .resume-upload label {
+          display: block;
+          margin-bottom: 0.5rem;
+          color: #ddd;
+        }
+        .resume-upload input[type="file"] {
+          width: 100%;
+          padding: 0.5rem;
+          border-radius: 5px;
+          border: 1px solid #444;
+          background-color: #252542;
+          color: white;
+        }
+        @media (max-width: 768px) {
+          header {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .menu-toggle { display: flex; }
+          .nav-links {
+            flex-direction: column;
+            width: 100%;
+            display: none;
+          }
+          .nav-links a {
+            margin: 10px 0;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #333;
+          }
+          .nav-links.show { display: flex; }
+          .hero h1 { font-size: 2rem; }
+          .hero p { font-size: 1rem; }
+          section { padding: 2rem 1rem; }
+          .about-content {
+            flex-direction: column;
+          }
+          .about-img {
+            min-width: auto;
+          }
+          .founder-card {
+            width: 100%;
+          }
+          .contact-form {
+            grid-template-columns: 1fr;
+          }
+          .form-group textarea,
+          button[type="submit"],
+          .form-message {
+            grid-column: span 1;
+          }
+          .careers-container {
+            grid-template-columns: 1fr;
+          }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="https://i.ibb.co/n851G64s/Whats-App-Image-2025-07-10-at-15-58-19-removebg-preview.png" alt="Sugam Technologies Logo" /> <!-- Update with your actual image URL -->
+        <span>SUGAM TECHNOLOGIES</span>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#" aria-current="page">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#careers">Careers</a>
+        <a href="#founders">Founders</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Sugam Technologies</h1>
+        <p>Innovative tech solutions for your business growth. We deliver excellence in BPO services, app development, web solutions, and digital marketing.</p>
+        <a href="#about" class="button">Learn More</a>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <h2 class="section-title">About Us</h2>
+    <div class="about-content">
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="About Sugam Technologies">
+        </div>
+        <div class="about-text">
+            <p>Sugam Technologies is a leading provider of innovative tech solutions. We specialize in delivering high-quality services tailored to your business needs.</p>
+            <p>Our team of experts combines technical expertise with business understanding to create solutions that drive growth and efficiency.</p>
+            <p>We pride ourselves on our commitment to quality, customer satisfaction, and continuous innovation.</p>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="services">
+    <h2 class="section-title">Our Services</h2>
+    <ul>
+        <li onclick="toggleDescription('bpo')">BPO Services</li>
+        <div id="bpo" class="service-description" style="display:block;">
+            <img src="https://images.unsplash.com/photo-1581093588401-7b9c0c6655dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="BPO Team">
+            <p>Comprehensive BPO services including customer support, data processing, and back-office operations. We help businesses streamline operations and reduce costs.</p>
+            <ul>
+                <li>24/7 customer support</li>
+                <li>Data processing with high accuracy</li>
+                <li>Scalable solutions</li>
+            </ul>
+        </div>
+
+        <li onclick="toggleDescription('app')">App Development</li>
+        <div id="app" class="service-description" style="display:none;">
+            <img src="https://images.unsplash.com/photo-1581276879432-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="App Development">
+            <p>Custom mobile app development for iOS and Android platforms. We create intuitive, high-performance apps that engage users.</p>
+            <ul>
+                <li>Native and cross-platform apps</li>
+                <li>UI/UX focused design</li>
+                <li>API integration</li>
+            </ul>
+        </div>
+
+        <li onclick="toggleDescription('web')">Web Development</li>
+        <div id="web" class="service-description" style="display:none;">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Web Development">
+            <p>Professional web development services creating responsive, fast, and secure websites that drive business results.</p>
+            <ul>
+                <li>Custom website design</li>
+                <li>E-commerce solutions</li>
+                <li>SEO-friendly development</li>
+            </ul>
+        </div>
+
+        <li onclick="toggleDescription('digital')">Digital Marketing</li>
+        <div id="digital" class="service-description" style="display:none;">
+            <img src="https://images.unsplash.com/photo-1556742041-4b8f0b6e4f1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Digital Marketing">
+            <p>Data-driven digital marketing strategies to expand your reach and connect with your target audience.</p>
+            <ul>
+                <li>SEO and SEM</li>
+                <li>Social media marketing</li>
+                <li>Content marketing</li>
+            </ul>
+        </div>
+
+        <li onclick="toggleDescription('data')">Data Entry Services</li>
+        <div id="data" class="service-description" style="display:none;">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Data Entry Services">
+            <p>Accurate and efficient data entry services to manage your business information with precision.</p>
+            <ul>
+                <li>Data collection and processing</li>
+                <li>Data conversion</li>
+                <li>Database management</li>
+            </ul>
+        </div>
+    </ul>
+</section>
+
+<section id="careers" class="careers">
+    <h2 class="section-title">Careers</h2>
+    <p>Join our team of talented professionals and grow your career with us.</p>
+
+    <div class="careers-container">
+        <div class="career-card">
+            <h3>Frontend Developer</h3>
+            <p><strong>Location:</strong> Trichy, Tamil Nadu</p>
+            <p><strong>Experience:</strong> 2+ years</p>
+            <div class="requirements">
+                <h4>Requirements:</h4>
+                <ul>
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>React or Angular</li>
+                    <li>Responsive design</li>
+                </ul>
+            </div>
+            <a href="#contact" class="apply-button" data-position="Frontend Developer">Apply Now</a>
+        </div>
+
+        <div class="career-card">
+            <h3>Backend Developer</h3>
+            <p><strong>Location:</strong> Trichy, Tamil Nadu</p>
+            <p><strong>Experience:</strong> 3+ years</p>
+            <div class="requirements">
+                <h4>Requirements:</h4>
+                <ul>
+                    <li>Node.js, Python, or Java</li>
+                    <li>Database systems</li>
+                    <li>API design</li>
+                </ul>
+            </div>
+            <a href="#contact" class="apply-button" data-position="Backend Developer">Apply Now</a>
+        </div>
+
+        <div class="career-card">
+            <h3>Digital Marketing</h3>
+            <p><strong>Location:</strong> Remote</p>
+            <p><strong>Experience:</strong> 1+ years</p>
+            <div class="requirements">
+                <h4>Requirements:</h4>
+                <ul>
+                    <li>SEO/SEM strategies</li>
+                    <li>Google Analytics</li>
+                    <li>Social media marketing</li>
+                </ul>
+            </div>
+            <a href="#contact" class="apply-button" data-position="Digital Marketing">Apply Now</a>
+        </div>
+
+        <div class="career-card">
+            <h3>Data Entry Operator</h3>
+            <p><strong>Location:</strong> Trichy, Tamil Nadu</p>
+            <p><strong>Experience:</strong> Fresher</p>
+            <div class="requirements">
+                <h4>Requirements:</h4>
+                <ul>
+                    <li>Fast typing skills</li>
+                    <li>MS Office</li>
+                    <li>Attention to detail</li>
+                </ul>
+            </div>
+            <a href="#contact" class="apply-button" data-position="Data Entry Operator">Apply Now</a>
+        </div>
+    </div>
+</section>
+
+<section id="founders" class="founders">
+    <h2 class="section-title">Our Founders</h2>
+    <div class="founders-container">
+        <div class="founder-card">
+            <h3>M. Shanmugapriya</h3>
+            <p><strong>Co-Founder & Director</strong></p>
+            <p>Visionary leader with expertise in tech innovation and business strategy.</p>
+        </div>
+        <div class="founder-card">
+            <h3>R.B. Sakila Banu</h3>
+            <p><strong>Co-Founder & Director</strong></p>
+            <p>Operations expert with a focus on client relations and service excellence.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <p>Get in touch with us for inquiries or to discuss your project.</p>
+
+    <div class="contact-form-container">
+        <form id="contactForm" class="contact-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone (Optional)</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="service">Service Interested In</label>
+                <select id="service" name="service">
+                    <option value="">Select a service</option>
+                    <option value="bpo">BPO Services</option>
+                    <option value="app">App Development</option>
+                    <option value="web">Web Development</option>
+                    <option value="digital">Digital Marketing</option>
+                    <option value="data">Data Entry Services</option>
+                    <option value="career">Career Opportunity</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="position">Position Applying For</label>
+                <input type="text" id="position" name="position" readonly>
+            </div>
+            <div class="form-group resume-upload">
+                <label for="resume">Upload Resume (PDF only)</label>
+                <input type="file" id="resume" name="resume" accept=".pdf">
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="button">Send Message</button>
+            <div id="formMessage" class="form-message"></div>
+        </form>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email Icon" loading="lazy">
+            <h3>Email</h3>
+            <a href="mailto:sugamtechnologies@gmail.com">sugamtechnologies@gmail.com</a>
+        </div>
+        <div class="contact-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/126/126341.png" alt="Phone Icon" loading="lazy">
+            <h3>Phone</h3>
+            <a href="tel:+919042111280">+91 90421 11280</a>
+        </div>
+        <div class="contact-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" alt="Website Icon" loading="lazy">
+            <h3>Website</h3>
+            <a href="https://sugamtech.in" target="_blank">sugamtech.in</a>
+        </div>
+        <div class="contact-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/684/684809.png" alt="Address Icon" loading="lazy">
+            <h3>Address</h3>
+            <p>48, Thondaimon Nagar, Wireless Road, Airport - 620007, Tamil Nadu, India</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div style="margin-bottom: 1rem;">
+        <img src="https://i.ibb.co/n851G64s/Whats-App-Image-2025-07-10-at-15-58-19-removebg-preview.png" alt="Sugam Technologies Logo" style="height: 40px; margin-bottom: 10px;"> <!-- Update with your actual image URL -->
+        <p style="margin: 0.5rem 0; font-size: 1.1rem;">Innovating Tomorrow's Solutions Today</p>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+        <a href="https://instagram.com/SugamTech2025" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width: 30px; height: 30px;" loading="lazy"></a>
+        <a href="https://linkedin.com/company/sugam-technologies" target="_blank"><img src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=000000" alt="LinkedIn" style="width: 35px; height: 35px;" loading="lazy"></a>
+    </div>
+    <p>&copy; 2023 Sugam Technologies. All rights reserved.</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      const menuToggle = document.querySelector(".menu-toggle");
+      navLinks.classList.toggle("show");
+      menuToggle.classList.toggle("active");
+    }
+
+    function toggleDescription(id) {
+      const sections = document.querySelectorAll('.service-description');
+      sections.forEach(sec => {
+        if (sec.id === id) {
+          sec.style.display = sec.style.display === 'none' ? 'block' : 'none';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Ensure first service description is visible
+        const firstServiceDescription = document.getElementById('bpo');
+        if (firstServiceDescription) {
+            firstServiceDescription.style.display = 'block';
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Update active link
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Highlight active section in navigation
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Career application handling
+        const applyButtons = document.querySelectorAll('.apply-button');
+        const positionField = document.getElementById('position');
+
+        applyButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const position = this.getAttribute('data-position');
+                positionField.value = position;
+                document.getElementById('service').value = 'career';
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Show loading state
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+
+            // Get form data
+            const formData = new FormData(contactForm);
+
+            // Send email using FormSubmit.co to sugamtechnologies@gmail.com
+            fetch('https://formsubmit.co/ajax/sugamtechnologies@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Show success message
+                formMessage.textContent = 'Thank you for your message! We will contact you soon.';
+                formMessage.classList.add('success');
+                formMessage.classList.remove('error');
+                formMessage.style.display = 'block';
+
+                // Reset form
+                contactForm.reset();
+            })
+            .catch(error => {
+                // Show error message
+                formMessage.textContent = 'There was an error sending your message. Please try again later or contact us directly at sugamtechnologies@gmail.com';
+                formMessage.classList.add('error');
+                formMessage.classList.remove('success');
+                formMessage.style.display = 'block';
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Reset button state
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            });
+        });
+    });
+</script>
+</body>
+</html>
